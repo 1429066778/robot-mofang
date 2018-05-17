@@ -1,0 +1,278 @@
+
+/*----------------魔方位置更新--------------------*/
+void R_Z()/*右手正转*/
+{
+    int TEMP;
+    if(F==3)
+    {
+        TEMP=D;
+        D=L;
+        L=U;
+        U=R;
+        R=TEMP;
+     }
+    if(B==3)
+    {
+      TEMP=D;
+      D=R;
+      R=U;
+      U=L;
+      L=TEMP;
+    }
+    if(L==3)
+    {
+      TEMP=D;
+      D=F;
+      F=TEMP;
+
+      TEMP=U;
+      U=B;
+      B=TEMP;   
+    }
+    if(R==3)
+    {
+      TEMP=D;
+      D=F;
+      F=U;
+      U=B;
+      B=TEMP;
+    }
+    if(U==3)
+    {
+      TEMP=B;
+      B=R;
+      R=F;
+      F=L;
+      L=TEMP;
+     }
+    if(D==3)
+    {
+      TEMP=R;
+      R=B;
+      B=L;
+      L=F;
+      F=TEMP;
+     }
+}
+void R_N()/*右手逆转*/
+{
+    int TEMP;
+    if(F==3)
+    {
+      TEMP=U;
+      U=L;
+      L=D;
+      D=R;
+      R=TEMP;
+    }
+    if(B==3)
+    {
+      TEMP=U;
+      U=R;
+      R=D;
+      D=L;
+      L=TEMP;
+    }
+    if(U==3)
+    {
+      TEMP=R;
+      R=B;
+      B=L;
+      L=F;
+      F=TEMP;
+    }
+    if(D==3)
+    {
+      TEMP=B;
+      B=R;
+      R=F;
+      F=L;
+      L=TEMP;
+    }
+    if(R==3)
+    {
+      TEMP=U;
+      U=F;
+      F=D;
+      D=B;
+      B=TEMP;
+      }
+   if (L==3)
+    {
+      TEMP=B;
+      B=D;
+      D=F;
+      F=U;
+      U=TEMP;
+      }
+}
+void R_2()//右手转两圈
+{
+  
+    int TEMP,TEMP2;
+    if(F==3||B==3){
+      TEMP=D;
+      D=U;
+      U=TEMP;
+
+      TEMP=L;
+      L=R;
+      R=TEMP;
+    }
+    if(R==3||L==3)
+    {
+      TEMP=D;
+      D=U;
+      U=TEMP;
+
+      TEMP=F;
+      F=B;
+      B=TEMP;
+    }
+    if(U==3||D==3)
+    {
+      TEMP=R;
+      R=L;
+      L=TEMP;
+
+      TEMP=F;
+      F=B;
+      B=TEMP;
+    }
+}
+void D_Z()//下-正转
+{
+  int TEMP,TEMP1;
+  if(F==6||B==6)
+  {
+    U=(U+1)%4;
+    if(U==0)
+    U=4;
+    D=(D+1)%4; 
+    if(D==0)
+      D=4;
+    R=(R+1)%4;
+    if(R==0)
+    R=4;
+   
+    L=(L+1)%4;
+    if(L==0)
+    L=4;
+  }
+  if(L==6||R==6)
+  {
+    U=(U+1)%4;
+    if(U==0)
+    U=4;
+    D=(D+1)%4;
+    if(D==0)
+      D=4;
+    F=(F+1)%4;
+    if(F==0)
+    F=4;
+    B=(B+1)%4;
+    if(B==0)
+    B=4;
+  }
+  if(U==6||D==6)
+  {
+    R=(R+1)%4;
+    if(R==0)
+    R=4;
+    L=(L+1)%4;
+    if(L==0)
+    L=4;
+    F=(F+1)%4;
+    if(F==0)
+    F=4;
+    B=(B+1)%4;
+    if(B==0)
+    B=4;
+  }
+}
+void D_N()//下-逆时针
+{
+  int TEMP;
+   if(F==6)
+   {
+      TEMP=D;
+      D=R;
+      R=U;
+      U=L;
+      L=TEMP;    
+    }
+    if(B==6)
+    {
+      TEMP=D;
+      D=L;
+      L=U;
+      U=R;
+      R=TEMP;
+     }
+     if(R==6)
+     {
+        TEMP=D;
+        D=B;
+        B=U;
+        U=F;
+        F=TEMP;
+      }
+      if(L==6)
+      {
+        TEMP=D;
+        D=F;
+        F=U;
+        U=B;
+        B=TEMP;
+      }
+      if(U==6)
+      {
+        TEMP=B;
+        B=L;
+        L=F;
+        F=R;
+        R=TEMP;
+      }
+      if(D==6)
+      {
+        TEMP=B;
+        B=R;
+        R=F;
+        F=L;
+        L=TEMP;
+        }
+}
+void D_2()//下两圈
+{
+  int TEMP;
+    if(F==6||B==6)
+    {
+      TEMP=D;
+      D=U;
+      U=TEMP;
+
+      TEMP=L;
+      L=R;
+      R=TEMP;
+    }
+    if(D==6||U==6)
+    {
+      TEMP=L;
+      L=R;
+      R=TEMP;
+
+      TEMP=B;
+      B=F;
+      F=TEMP;
+     }
+     if(R==6||L==6)
+     {
+        TEMP=B;
+        B=F;
+        F=TEMP;
+
+        TEMP=D;
+        D=U;
+        U=TEMP;
+      }
+}
